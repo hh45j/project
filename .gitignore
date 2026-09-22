@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Данные и артефакты
+data/*.csv
+data/*.json
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Секреты и локальные настройки
+.env
+*.key
