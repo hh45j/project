@@ -37,27 +37,3 @@
 ## Лицензия
 
 MIT
-
-
-
-## Структура репозитория
-
-- `src/` — код скрипта (`studycards.py`)
-- `content/` — примеры конспектов в Markdown
-- `data/` — сгенерированные CSV/JSON для Anki
-- `docs/` — дополнительная документация
-
-## Как запустить
-
-1. Установите Python 3.
-2. Склонируйте репозиторий:
-   ```bash
-   git clone https://github.com/hh45j/project.git
-   cd project
-3. Запустите скрипт:
-
-   ```bash
-   python src/studycards.py
-   ```
-
-4. На выходе получите файл с карточками в `data/`.
