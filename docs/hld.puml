@@ -1,0 +1,34 @@
+@startuml
+title StudyCards — HLD
+
+actor "Пользователь" as User
+actor "Разработчик\n(ревью PR)" as Dev
+
+rectangle "StudyCards (Python-скрипт)" {
+  component "CLI\n(аргументы, команды)" as CLI
+  component "Парсер Markdown" as Parser
+  component "Генератор карточек" as Gen
+  component "Экспорт в CSV" as Exp
+  component "Режим тренировки" as Train
+  component "Статистика" as Stats
+}
+
+folder "content/\n(конспекты .md)" as Content
+database "data/\n(CSV, stats.json)" as Data
+cloud "Anki\n(импорт CSV)" as Anki
+cloud "GitHub\n(репозиторий, Issues, Wiki)" as GH
+
+User --> CLI : команды
+CLI --> Parser
+Parser --> Content : чтение
+Parser --> Gen : пары вопрос-ответ
+Gen --> Exp : карточки
+Gen --> Train : карточки
+Exp --> Data : запись CSV
+Train --> Stats : результаты
+Stats --> Data : stats.json
+User --> Anki : импорт файла
+Data ..> Anki : CSV
+Dev --> GH : Pull Request
+GH ..> CLI : исходный код
+@enduml
